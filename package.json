@@ -1,0 +1,43 @@
+{
+    "name": "functional-map",
+    "version": "0.0.1",
+    "description": "Extend javascript's Map object with higher-order functions",
+    "main": "lib/functional-map.js",
+    "author": "trepz",
+    "license": "MIT",
+    "scripts": {
+        "test": "jest",
+        "fmt": "prettier --write \"./**/*.ts\"",
+        "build": "tsc"
+    },
+    "files": [
+        "lib"
+    ],
+    "typings": "lib/functional-map.d.ts",
+    "keywords": [
+        "Map",
+        "typescript",
+        "functional"
+    ],
+    "devDependencies": {
+        "@types/jest": "^23.3.9",
+        "jest": "^23.6.0",
+        "prettier": "^1.15.2",
+        "ts-jest": "^23.10.4",
+        "ts-loader": "^5.3.0",
+        "tslib": "^1.9.3",
+        "typescript": "^3.1.6"
+    },
+    "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "node"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/trepz/functional-map.git"
+    },
+    "bugs": {
+        "url": "https://github.com/trepz/functional-map/issues"
+    },
+    "homepage": "https://github.com/trepz/functional-map#readme"
+}
