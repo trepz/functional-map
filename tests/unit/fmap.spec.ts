@@ -22,3 +22,25 @@ describe('Map.map', () => {
         expect(fmap.get(1)).toEqual({ hello: 'there' })
     })
 })
+
+describe('Map.filter', () => {
+    let fmap: Map<number, number>
+    beforeEach(
+        () => (fmap = new Map([[1, 2], [2, 1], [3, 7], [4, 15], [5, 3], [6, 20], [7, 1], [8, 2], [9, 9], [10, 11]])),
+    )
+
+    test('it filters values correctly', () => {
+        let nmap = fmap.filter(x => x > 10)
+        expect(nmap.size).toBe(3)
+        expect(nmap.get(4)).toBe(15)
+        expect(nmap.get(2)).toBeUndefined()
+
+        nmap = fmap.filter(x => false)
+        expect(nmap.size).toBe(0)
+    })
+
+    test('keys work correctly', () => {
+        const nmap = fmap.filter((v, k) => k < 6)
+        expect(nmap.size).toBe(5)
+    })
+})
