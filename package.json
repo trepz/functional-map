@@ -1,6 +1,6 @@
 {
     "name": "functional-map",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Extend javascript's Map object with higher-order functions",
     "main": "lib/functional-map.js",
     "author": "trepz",
