@@ -22,4 +22,12 @@ export default class FMap<K, V> extends Map<K, V> {
         }
         return nMap
     }
+
+    reduce<U>(fn: (accumulator: U, value: V, key: K, map: FMap<K, V>) => U, initialValue: U): U {
+        let a = initialValue
+        for (let [k, v] of this) {
+            a = fn(a, v, k, this)
+        }
+        return a
+    }
 }

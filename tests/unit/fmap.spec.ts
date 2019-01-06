@@ -45,6 +45,22 @@ describe('Map.filter', () => {
     })
 })
 
+describe('Map.reduce', () => {
+    let fmap: Map<number, number>
+    beforeEach(() => (fmap = new Map([[1, 2], [2, 1], [3, 7], [4, 15], [5, 3]])))
+
+    test('it can reduce the map to a different type', () => {
+        const str = fmap.reduce((a, c, k, m) => a + c + (k < m.size ? ', ' : ''), '')
+        expect(str).toBe('2, 1, 7, 15, 3')
+
+        const arr = fmap.reduce((a, c) => [...a, c], <number[]>[])
+        expect(arr).toEqual([2, 1, 7, 15, 3])
+
+        const obj = fmap.reduce((a, c, k) => ({ ...a, [k.toString()]: c }), {})
+        expect(obj).toEqual({ '1': 2, '2': 1, '3': 7, '4': 15, '5': 3 })
+    })
+})
+
 describe('Chaining methods', () => {
     it('should have no type errors chaining filters and maps that transform types', () => {
         const chainMap = new Map([[1, 10], [2, 20]])
