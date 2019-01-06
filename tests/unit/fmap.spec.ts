@@ -44,3 +44,15 @@ describe('Map.filter', () => {
         expect(nmap.size).toBe(5)
     })
 })
+
+describe('Chaining methods', () => {
+    it('should have no type errors chaining filters and maps that transform types', () => {
+        const chainMap = new Map([[1, 10], [2, 20]])
+            .map(v => v.toString())
+            .filter(v => v === '20')
+            .map(v => v + ' value')
+
+        expect(chainMap.get(2)).toBe('20 value')
+        expect(chainMap.size).toBe(1)
+    })
+})
